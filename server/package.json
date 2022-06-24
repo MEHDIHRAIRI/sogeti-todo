@@ -7,7 +7,6 @@
     "start": "nodemon index.ts",
     "test:services": "mocha --recursive test/services"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",

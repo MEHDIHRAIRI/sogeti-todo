@@ -18,7 +18,7 @@ const handleSubmit = e => {
 
     props.onSubmit({
     id: Math.floor(Math.random() * 10000),
-    text: input
+    title: input
     })
 
     setInput('');
@@ -32,7 +32,7 @@ return (
             placeholder='Update your item'
             value={input}
             onChange={handleChange}
-            name='text'
+            name='title'
             ref={inputRef}
             className='todo-input edit'
           />
@@ -46,7 +46,7 @@ return (
             placeholder='Add a todo'
             value={input}
             onChange={handleChange}
-            name='text'
+            name='title'
             className='todo-input'
             ref={inputRef}
           />

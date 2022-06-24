@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
+import axios from "axios"
 
 function TodoList() {
     const [todos, setTodos] = useState ([]);
-
+    const url = "http://localhost:5000/todo"
+    useEffect(() => {
+       getAllTodos()
+    }, [])
+    
+    const getAllTodos = async() =>{
+        const todos = await axios.get(url)
+        setTodos(todos.data.todos)
+    }
     const addTodo = todo => {
-        if(!todo.text) {
+        if(!todo.title) {
             return
         }
 
@@ -14,9 +23,8 @@ function TodoList() {
 
         setTodos(newTodos);        
     };
-
     const updateTodo = (todoId, newValue) => {
-        if (!newValue.text) {
+        if (!newValue.title) {
             return;
         }
         setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
