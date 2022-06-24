@@ -12,7 +12,7 @@ export default class todoService{
         return todo
     }
     async addTodo({ title, description }: { title: string, status: string, description: string }){ 
-        const lastId = MOCKED_TODOS[MOCKED_TODOS.length]
+        const lastId = MOCKED_TODOS[MOCKED_TODOS.length - 1]
         console.log(lastId.id)
         const addedTodo = MOCKED_TODOS.push({
             id: lastId.id + 1,
